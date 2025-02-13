@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I miei pensieri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            font-size: 16px;
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>I miei pensieri</h1>
+    <textarea id="pensieri" placeholder="Scrivi qui..."></textarea>
+    <button onclick="salvaTesto()">Salva</button>
+    <script>
+        function salvaTesto() {
+            let testo = document.getElementById("pensieri").value;
+            localStorage.setItem("pensiero", testo);
+            alert("Pensiero salvato!");
+        }
+        document.getElementById("pensieri").value = localStorage.getItem("pensiero") || "";
+    </script>
+</body>
+</html>
